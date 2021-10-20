@@ -1,16 +1,17 @@
 #include<stdio.h>
-#include<conio.h>
+// removed conio dependency
 
-void showarr(int *arr, int *size)
+int showarr(int *arr, int *size)
 {
     for (int i = 0; i < *size; i++)
     {
         printf("%d ", arr[i]);
     }
     printf("\n");
+    return
 }
 
-void addelement(int *arr, int *size, int index, int value)
+int addelement(int *arr, int *size, int index, int value)
 {
     for (int i = *size; i > index; i--)
     {
@@ -18,18 +19,20 @@ void addelement(int *arr, int *size, int index, int value)
     }
     arr[index] = value;
     *size += 1;
+    return
 }
 
-void delelement(int *arr, int *size, int index)
+int delelement(int *arr, int *size, int index)
 {   
     for (int i = index; i < *size - 1; i++)
     {
         arr[i] = arr[i + 1];
     }
     *size -= 1;
+    return
 }
 
-void main()
+int main()
 {
     int size;
     int arr[20] = {1, 5, 7, 12};
@@ -39,4 +42,5 @@ void main()
     showarr(arr, &size);
     delelement(arr, &size, 2);
     showarr(arr, &size);
+    return 0;
 }
