@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 #include<stdlib.h>
 
 typedef struct myArray
@@ -9,7 +8,7 @@ typedef struct myArray
     int *ptr;
 }arr;
 
-void createArray(arr *a, int tSize, int uSize)
+int createArray(arr *a, int tSize, int uSize)
 {
     (*a).total_size = tSize;
     (*a).used_size = uSize;
@@ -19,23 +18,24 @@ void createArray(arr *a, int tSize, int uSize)
         printf("Enter element %d : ", i + 1);
         scanf("%d", &(a->ptr)[i]);
     }
+    return
 }
 
-void show(arr *a)
+int show(arr *a)
 {
     for (int i = 0; i < a->used_size; i++)
     {
         printf("Element %d : %d\n", i + 1, (a->ptr)[i]);
     }
-    
+    return
 }
 
-void main()
+int main()
 {
     arr marks;
     printf("\n\nInitial Size : %d\n\n", sizeof(marks));
     createArray(&marks, 10, 5);
     show(&marks);
     printf("\n\nFinal Size : %d\n\n", sizeof(marks));
-    getch();
+    return 0;
 }
